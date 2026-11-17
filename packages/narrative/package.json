@@ -1,0 +1,26 @@
+{
+  "name": "@fpa/narrative",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:ci": "vitest run --coverage",
+    "eval:live": "tsx scripts/eval-live.ts"
+  },
+  "dependencies": {
+    "@fpa/engine": "workspace:*",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@fpa/semantic": "workspace:*",
+    "@types/node": "^22.10.2",
+    "@vitest/coverage-v8": "^2.1.8",
+    "fast-check": "^3.23.1",
+    "tsx": "^4.19.2",
+    "vitest": "^2.1.8"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "fpa-ai",
+  "private": true,
+  "version": "0.0.0",
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "test:ci": "pnpm -r test:ci",
+    "build": "pnpm --filter @fpa/web build",
+    "e2e": "pnpm --filter @fpa/web e2e",
+    "data:generate": "pnpm --filter @fpa/synthetic generate",
+    "data:check": "pnpm --filter @fpa/synthetic check",
+    "docs:generate": "tsx scripts/gen-calc-registry.ts",
+    "docs:check": "tsx scripts/gen-calc-registry.ts --check",
+    "db:generate": "pnpm --filter @fpa/db generate",
+    "db:migrate": "pnpm --filter @fpa/db cli migrate",
+    "db:load": "pnpm --filter @fpa/db cli load --yes",
+    "db:verify": "pnpm --filter @fpa/db cli verify",
+    "eval:live": "pnpm --filter @fpa/narrative eval:live"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.19.0"
+  }
+}

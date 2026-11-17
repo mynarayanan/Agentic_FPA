@@ -1,0 +1,95 @@
+[
+  {
+    "id": "Q01",
+    "question": "What is the November 2026 revenue variance versus budget?",
+    "expected": {
+      "value_inr": -80000000
+    },
+    "calc_ref": "VAR-REV-001"
+  },
+  {
+    "id": "Q02",
+    "question": "What is the November 2026 operating profit variance?",
+    "expected": {
+      "value_inr": -70000000
+    }
+  },
+  {
+    "id": "Q03",
+    "question": "By what percentage did operating expenses exceed budget in November 2026?",
+    "expected": {
+      "value_pct": 11.43
+    }
+  },
+  {
+    "id": "Q04",
+    "question": "What was the price discounting impact on November 2026 revenue?",
+    "expected": {
+      "value_inr": -20000000
+    }
+  },
+  {
+    "id": "Q05",
+    "question": "What was the timing impact (delayed orders) on November 2026 revenue?",
+    "expected": {
+      "value_inr": -10000000
+    }
+  },
+  {
+    "id": "Q06",
+    "question": "What are the volume and mix effects in the November 2026 revenue bridge?",
+    "expected": {
+      "volume_inr": -39708029,
+      "mix_inr": -10291971
+    }
+  },
+  {
+    "id": "Q07",
+    "question": "By how much was the full-year FY27 revenue forecast reduced after the November close?",
+    "expected": {
+      "value_inr": -500000000
+    }
+  },
+  {
+    "id": "Q08",
+    "question": "What are the forecast change drivers (demand, FX, order delay)?",
+    "expected": {
+      "demand_inr": -250000000,
+      "fx_inr": -100000000,
+      "order_delay_inr": -150000000
+    }
+  },
+  {
+    "id": "Q09",
+    "question": "Which operating expense accounts have the largest overrun in November 2026?",
+    "expected": {
+      "top3_accounts": [
+        "6300",
+        "6400",
+        "6200"
+      ]
+    }
+  },
+  {
+    "id": "Q10",
+    "question": "What is the total proposed benefit of the four corrective actions?",
+    "expected": {
+      "value_inr": 143000000
+    },
+    "note": "Gross, before overlap and timing-vs-incremental adjustments"
+  },
+  {
+    "id": "Q11",
+    "question": "Is the order-recovery opportunity incremental revenue or a timing shift?",
+    "expected": {
+      "classification": "TIMING_RECOVERY"
+    }
+  },
+  {
+    "id": "Q12",
+    "question": "Is the revenue shortfall growing or recurring across months?",
+    "expected": {
+      "note": "Opex overrun on travel, consulting and contractors widens every month from May to November"
+    }
+  }
+]

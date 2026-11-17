@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "generator_version": "1.0.0",
+    "seed": 20261115,
+    "currency": "INR",
+    "unit": "rupees (integers)",
+    "fiscal_year": "FY27 = Apr 2026 - Mar 2027",
+    "as_of": "2026-11"
+  },
+  "nov2026": {
+    "revenue": {
+      "budget": 1000000000,
+      "actual": 920000000,
+      "variance": -80000000
+    },
+    "other_operating_costs": {
+      "budget": 500000000,
+      "actual": 450000000,
+      "variance": -50000000
+    },
+    "opex": {
+      "budget": 350000000,
+      "actual": 390000000,
+      "variance": 40000000
+    },
+    "opex_overrun_pct": 11.43,
+    "operating_profit": {
+      "budget": 150000000,
+      "actual": 80000000,
+      "variance": -70000000
+    },
+    "opex_by_account": {
+      "6100": {
+        "budget": 150000000,
+        "actual": 156000000,
+        "variance": 6000000
+      },
+      "6200": {
+        "budget": 20000000,
+        "actual": 28000000,
+        "variance": 8000000
+      },
+      "6300": {
+        "budget": 30000000,
+        "actual": 42000000,
+        "variance": 12000000
+      },
+      "6400": {
+        "budget": 35000000,
+        "actual": 45000000,
+        "variance": 10000000
+      },
+      "6500": {
+        "budget": 35000000,
+        "actual": 39000000,
+        "variance": 4000000
+      },
+      "6600": {
+        "budget": 30000000,
+        "actual": 30000000,
+        "variance": 0
+      },
+      "6700": {
+        "budget": 30000000,
+        "actual": 30000000,
+        "variance": 0
+      },
+      "6800": {
+        "budget": 20000000,
+        "actual": 20000000,
+        "variance": 0
+      }
+    }
+  },
+  "revenue_bridge_nov2026": {
+    "timing": -10000000,
+    "price": -20000000,
+    "volume": -39708029,
+    "mix": -10291971,
+    "total": -80000000,
+    "planted_targets_inr": {
+      "volume": -40000000,
+      "price": -20000000,
+      "mix": -10000000,
+      "timing": -10000000
+    },
+    "industrial_equipment_unit_decline_pct": -12.41
+  },
+  "full_year_fy27": {
+    "budget": 12000000000,
+    "forecast_oct": 12000000000,
+    "forecast_nov": 11500000000,
+    "prior_year": 11150000000,
+    "forecast_change": -500000000,
+    "forecast_change_pct": -4.17,
+    "growth_vs_prior_year_pct": {
+      "forecast_oct": 7.6,
+      "forecast_nov": 3.1
+    }
+  },
+  "forecast_bridge": {
+    "DEMAND": -250000000,
+    "FX": -100000000,
+    "ORDER_DELAY": -150000000,
+    "total": -500000000,
+    "nov_actual_to_date": -80000000,
+    "dec_to_mar": -420000000
+  },
+  "actions": [
+    {
+      "action_id": "ACT-001",
+      "potential_inr": 100000000
+    },
+    {
+      "action_id": "ACT-002",
+      "potential_inr": 15000000
+    },
+    {
+      "action_id": "ACT-003",
+      "potential_inr": 20000000
+    },
+    {
+      "action_id": "ACT-004",
+      "potential_inr": 8000000
+    }
+  ]
+}

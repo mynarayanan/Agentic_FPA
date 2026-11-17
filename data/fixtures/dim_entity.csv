@@ -1,0 +1,4 @@
+entity_id,name,country,functional_currency
+E-IN,India Manufacturing,IN,INR
+E-EU,Europe Manufacturing,DE,EUR
+E-NA,North America Manufacturing,US,USD

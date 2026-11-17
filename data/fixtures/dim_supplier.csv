@@ -1,0 +1,25 @@
+supplier_id,name,category,contract_end_period,price_escalation_bps,quality_score,alt_sources,renegotiation_candidate
+S-001,Forgeline Castings,Steel & Castings,2027-01,917,82,3,true
+S-002,Alloy Dynamics,Steel & Castings,2028-06,792,86,1,true
+S-003,Ridgeback Steel Works,Steel & Castings,2026-12,829,91,1,true
+S-004,Circuitry Partners,Electronics,2027-09,747,73,2,true
+S-005,Voltix Components,Electronics,2027-03,821,98,1,true
+S-006,Signalcore Electronics,Electronics,2027-06,497,77,3,false
+S-007,Precision Bearings Co,Bearings,2026-12,304,80,2,false
+S-008,Rollwell Bearings,Bearings,2028-06,282,93,2,false
+S-009,Axis Bearing Group,Bearings,2027-03,495,82,0,false
+S-010,Torquemaster Motors,Motors & Drives,2028-03,334,78,3,false
+S-011,Driveline Systems,Motors & Drives,2027-03,178,78,3,false
+S-012,Amperage Drives,Motors & Drives,2027-01,470,81,1,false
+S-013,Hydrotech Fluid Power,Hydraulics,2027-09,519,77,3,false
+S-014,Pressline Hydraulics,Hydraulics,2026-12,317,73,3,false
+S-015,Flowright Valves,Hydraulics,2027-03,158,87,1,false
+S-016,Boltwise Fasteners,Fasteners,2028-06,365,91,3,false
+S-017,Anchor & Thread,Fasteners,2027-03,294,96,2,false
+S-018,Clampline Industrial,Fasteners,2028-06,507,94,1,false
+S-019,Packwell Solutions,Packaging,2027-01,333,96,2,false
+S-020,Crateworks,Packaging,2027-12,388,80,0,false
+S-021,Safepack Industrial,Packaging,2027-09,329,82,3,false
+S-022,Swiftmove Freight,Logistics,2028-03,494,73,3,false
+S-023,Oceanic Cargo Lines,Logistics,2028-06,500,87,0,false
+S-024,Interland Haulage,Logistics,2027-01,423,96,2,false

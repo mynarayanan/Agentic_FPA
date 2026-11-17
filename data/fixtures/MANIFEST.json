@@ -1,0 +1,81 @@
+{
+  "generator_version": "1.0.0",
+  "tables": {
+    "dim_entity": {
+      "rows": 3,
+      "sha256": "72e4b5286c3f8ae4eccf166379b81d8c7162ce7be5c4256fd6595c9eadf51313"
+    },
+    "dim_bu": {
+      "rows": 5,
+      "sha256": "690b4d1e701f05c9580d7a19f204421adbfe4654a41a082598c84367524efd39"
+    },
+    "dim_product": {
+      "rows": 14,
+      "sha256": "6469038bbffe9122ebc661eac685443af77036869d15dcfb37fd714d2311d978"
+    },
+    "dim_customer": {
+      "rows": 30,
+      "sha256": "82717f32f3bd0e4e646f4f4ae0ac8346ace798264de99d953ba03d28bc308510"
+    },
+    "dim_account": {
+      "rows": 14,
+      "sha256": "7f1d132c07467cbb01027e70cf47b8819c9f8602aeac01e12727d5e39a2b231f"
+    },
+    "dim_period": {
+      "rows": 24,
+      "sha256": "c141d266988db7e21615adcf85b8cdce2bca96216f65dfb3959a2d07a77b32c2"
+    },
+    "dim_version": {
+      "rows": 5,
+      "sha256": "1354db917def9bc03b587c00def45a289011fd91491a5d9e0a0fef613cebd667"
+    },
+    "dim_supplier": {
+      "rows": 24,
+      "sha256": "2bd65a5bef8a95412f9c768d8bd344d9915c69a8641d6e489f4c5aca09af05c4"
+    },
+    "dim_action": {
+      "rows": 4,
+      "sha256": "22b8bfaf9b118c960fc0f8c6e22f472b3b871d6a9e7e074ef4038ab319467e95"
+    },
+    "fx_rate": {
+      "rows": 58,
+      "sha256": "4aee66a7310591882df5c14a0f80f50aa23d5bfe183e96e04548bd9d03d380e4"
+    },
+    "fact_gl": {
+      "rows": 10920,
+      "sha256": "663726b58adc24e418e49bc528d58eb51506dd6aeda9bce06efb5035f75fd8d6"
+    },
+    "fact_sales_line": {
+      "rows": 666,
+      "sha256": "16738d613820c76bae78513846703cb1ece4e3b1858bfde758aa3a7de664b50d"
+    },
+    "fact_order_book": {
+      "rows": 34,
+      "sha256": "5cee3ccf081909ba685fa5ec5a63e9e73f2370de3d0eab647cb5d45f6664c661"
+    },
+    "fact_opex_txn": {
+      "rows": 149,
+      "sha256": "5257d077ba425369d4ff05ffa6bd543bafe1a8b9b17d302fb687389cee1cfa63"
+    },
+    "fact_headcount": {
+      "rows": 360,
+      "sha256": "8a1b5aa948839e411bd9e90be688f19d7de387d0bad7fcf494530db8b47abbc7"
+    },
+    "fact_supplier_spend": {
+      "rows": 42,
+      "sha256": "f19d1366a78854d769375e4ec875603037cf6a7a92757559377b7de1adf4fad7"
+    },
+    "fact_demand_assumption": {
+      "rows": 15,
+      "sha256": "f0941f98351ed4ff7707213be40227fb88066e9f3c78ac495d993d9f59d4dbb3"
+    },
+    "fact_forecast_bridge": {
+      "rows": 85,
+      "sha256": "379e3933958a79fa77b915b2315726a46e5d439f0536d162d6a42ded08566db2"
+    },
+    "fact_planner_override": {
+      "rows": 4,
+      "sha256": "b48e47b11e73a3fe7b9e83426e6a6cfb437dce1b112632eed77887c0c838f834"
+    }
+  }
+}

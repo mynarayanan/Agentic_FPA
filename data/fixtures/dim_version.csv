@@ -1,0 +1,6 @@
+version_id,name,kind,fiscal_year,as_of_period
+BUD_FY27,Budget FY27,BUDGET,FY27,
+ACT_FY27,Actuals FY27 (to Nov 2026),ACTUAL,FY27,2026-11
+FC_FY27_OCT,Forecast at October 2026 close,FORECAST,FY27,2026-10
+FC_FY27_NOV,Forecast at November 2026 close (latest),FORECAST,FY27,2026-11
+ACT_FY26,Actuals FY26 (prior year),ACTUAL,FY26,2026-03

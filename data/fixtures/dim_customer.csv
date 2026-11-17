@@ -1,0 +1,31 @@
+customer_id,name,entity_id,region,segment
+C-IN-01,Falcon Industries Pvt Ltd,E-IN,India-North,Strategic
+C-IN-02,Dune Works Pvt Ltd,E-IN,India-South,Key
+C-IN-03,Vantage Engineering Pvt Ltd,E-IN,India-West,Key
+C-IN-04,Ember Systems Pvt Ltd,E-IN,India-North,Standard
+C-IN-05,Cobalt Manufacturing Pvt Ltd,E-IN,India-South,Standard
+C-IN-06,Riverbend Dynamics Pvt Ltd,E-IN,India-West,Standard
+C-IN-07,Ironwood Power Pvt Ltd,E-IN,India-North,Standard
+C-IN-08,Aurora Machines Pvt Ltd,E-IN,India-South,Standard
+C-IN-09,Granite Industries Pvt Ltd,E-IN,India-West,Standard
+C-IN-10,Bluepeak Works Pvt Ltd,E-IN,India-North,Standard
+C-IN-11,Union Engineering Pvt Ltd,E-IN,India-South,Standard
+C-IN-12,Nimbus Systems Pvt Ltd,E-IN,India-West,Standard
+C-IN-13,Juniper Manufacturing Pvt Ltd,E-IN,India-North,Standard
+C-IN-14,Tidewater Dynamics Pvt Ltd,E-IN,India-South,Standard
+C-EU-01,Vertex Power GmbH,E-EU,Europe,Strategic
+C-EU-02,Cedar Machines GmbH,E-EU,Europe,Key
+C-EU-03,Westbrook Industries GmbH,E-EU,Europe,Key
+C-EU-04,Lumen Works GmbH,E-EU,Europe,Standard
+C-EU-05,Quarry Engineering GmbH,E-EU,Europe,Standard
+C-EU-06,Pinnacle Systems GmbH,E-EU,Europe,Standard
+C-EU-07,Summit Manufacturing GmbH,E-EU,Europe,Standard
+C-EU-08,Kestrel Dynamics GmbH,E-EU,Europe,Standard
+C-EU-09,Elmgate Power GmbH,E-EU,Europe,Standard
+C-NA-01,Alder Machines Inc,E-NA,North America,Strategic
+C-NA-02,Solace Industries Inc,E-NA,North America,Key
+C-NA-03,Helix Works Inc,E-NA,North America,Key
+C-NA-04,Orion Engineering Inc,E-NA,North America,Standard
+C-NA-05,Meridian Systems Inc,E-NA,North America,Standard
+C-NA-06,Zenith Manufacturing Inc,E-NA,North America,Standard
+C-NA-07,Birch Dynamics Inc,E-NA,North America,Standard

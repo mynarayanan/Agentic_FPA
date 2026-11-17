@@ -1,0 +1,15 @@
+sku_id,name,bu_id,budget_list_price_inr,std_margin_bps
+IE-100,Compact Press 100,BU-IE,200000,2400
+IE-200,Industrial Press 200,BU-IE,350000,3000
+IE-300,Heavy Press 300,BU-IE,500000,3600
+AU-100,Controller Module 100,BU-AU,120000,3200
+AU-200,Line Automation Cell 200,BU-AU,240000,3400
+AU-300,Robotic Cell 300,BU-AU,400000,3800
+CP-100,Bearing Set 100,BU-CP,15000,2200
+CP-200,Gearbox 200,BU-CP,32000,2600
+CP-300,Hydraulic Pack 300,BU-CP,56000,2800
+SV-100,Annual Service Plan,BU-SV,8000,4200
+SV-200,Spares Kit,BU-SV,24000,3900
+SV-900,Consumables Pack,BU-SV,1000,3000
+EN-100,Solar Inverter 100,BU-EN,300000,2800
+EN-200,Energy Storage 200,BU-EN,450000,3100

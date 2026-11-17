@@ -1,0 +1,5 @@
+version_id,period,entity_id,bu_id,driver,delta_inr,role,reason
+FC_FY27_NOV,2027-01,E-IN,BU-IE,DEMAND,-4000000,Regional Sales Director,Account team expects strategic customer to defer Q4 purchases
+FC_FY27_NOV,2027-01,E-IN,BU-AU,DEMAND,-2000000,Business Unit Head,Customer capital budget freeze
+FC_FY27_NOV,2027-02,E-EU,BU-AU,DEMAND,-2500000,FP&A Planner,Pipeline conversion lowered to historical average
+FC_FY27_NOV,2027-03,E-NA,BU-IE,DEMAND,-3000000,FP&A Planner,Manual haircut on uncommitted pipeline

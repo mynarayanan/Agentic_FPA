@@ -1,0 +1,5 @@
+action_id,title,driver_ref,owner_role,potential_inr,kind,timeline_days,implementation_cost_inr,overlaps_with,depends_on,risk,confidence
+ACT-001,Recover delayed customer orders,ORDER_DELAY,Regional Sales Director,100000000,TIMING_RECOVERY,30,2500000,,Delivery capacity confirmation,Delivery capacity and customer acceptance,MEDIUM
+ACT-002,Rationalise discretionary expenditure,OPEX_DISCRETIONARY,Finance Business Partner,15000000,RECURRING_SAVING,90,500000,,,Potential operational impact,HIGH
+ACT-003,Optimise product mix toward higher-margin industrial equipment,MIX,Commercial Head,20000000,RECURRING_MARGIN,60,1000000,ACT-001,Production capacity,Demand elasticity and production capacity,MEDIUM
+ACT-004,Review procurement contracts,PROCUREMENT,Procurement Head,8000000,RECURRING_SAVING,90,1000000,,,Supplier commitments and quality,MEDIUM

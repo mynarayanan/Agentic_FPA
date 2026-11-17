@@ -1,0 +1,15 @@
+account_id,name,type,grp,discretionary
+4000,Revenue - Product Sales,REVENUE,Revenue,false
+4100,Revenue - Services & Spares,REVENUE,Revenue,false
+5000,Direct Materials,COGS,Other operating costs,false
+5100,Direct Labour,COGS,Other operating costs,false
+5200,Manufacturing Overheads,COGS,Other operating costs,false
+5300,Freight & Logistics,COGS,Other operating costs,false
+6100,Salaries & Benefits,OPEX,Operating expenses,false
+6200,Travel,OPEX,Operating expenses,true
+6300,Consulting & Professional Fees,OPEX,Operating expenses,true
+6400,External Contractors,OPEX,Operating expenses,true
+6500,Marketing,OPEX,Operating expenses,false
+6600,IT & Software,OPEX,Operating expenses,false
+6700,Facilities,OPEX,Operating expenses,false
+6800,Other Operating Expenses,OPEX,Operating expenses,false

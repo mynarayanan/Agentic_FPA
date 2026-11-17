@@ -1,0 +1,150 @@
+txn_id,period,entity_id,cost_center,account_id,vendor,amount_inr,discretionary,pre_approved
+TX-00001,2026-11,E-IN,CC-IN-SALES,6200,Metro Cabs,395800,true,true
+TX-00002,2026-11,E-IN,CC-IN-RND,6200,Metro Cabs,380547,true,true
+TX-00003,2026-11,E-IN,CC-IN-OPS,6200,Corporate Air Desk,750753,true,true
+TX-00004,2026-11,E-IN,CC-IN-RND,6200,Metro Cabs,533076,true,true
+TX-00005,2026-11,E-IN,CC-IN-ADMIN,6200,Metro Cabs,154856,true,true
+TX-00006,2026-11,E-IN,CC-IN-SALES,6200,SkyRoute Travel,80142,true,true
+TX-00007,2026-11,E-IN,CC-IN-RND,6200,Corporate Air Desk,693102,true,true
+TX-00008,2026-11,E-IN,CC-IN-ADMIN,6200,Business Stay Group,551431,true,true
+TX-00009,2026-11,E-IN,CC-IN-ADMIN,6200,Metro Cabs,98239,true,true
+TX-00010,2026-11,E-IN,CC-IN-RND,6200,SkyRoute Travel,707321,true,true
+TX-00011,2026-11,E-IN,CC-IN-RND,6200,Corporate Air Desk,736017,true,false
+TX-00012,2026-11,E-IN,CC-IN-RND,6200,Business Stay Group,504121,true,false
+TX-00013,2026-11,E-IN,CC-IN-RND,6200,Corporate Air Desk,73679,true,true
+TX-00014,2026-11,E-IN,CC-IN-SALES,6200,Corporate Air Desk,375894,true,true
+TX-00015,2026-11,E-IN,CC-IN-ADMIN,6200,Corporate Air Desk,387010,true,true
+TX-00016,2026-11,E-IN,CC-IN-SALES,6200,SkyRoute Travel,559704,true,true
+TX-00017,2026-11,E-IN,CC-IN-OPS,6200,Metro Cabs,139344,true,true
+TX-00018,2026-11,E-IN,CC-IN-ADMIN,6200,Metro Cabs,253353,true,true
+TX-00019,2026-11,E-IN,CC-IN-OPS,6200,Metro Cabs,386752,true,true
+TX-00020,2026-11,E-IN,CC-IN-RND,6200,SkyRoute Travel,580903,true,true
+TX-00021,2026-11,E-IN,CC-IN-ADMIN,6200,Corporate Air Desk,584781,true,false
+TX-00022,2026-11,E-IN,CC-IN-RND,6200,Business Stay Group,370206,true,true
+TX-00023,2026-11,E-IN,CC-IN-ADMIN,6200,Business Stay Group,715077,true,true
+TX-00024,2026-11,E-IN,CC-IN-SALES,6200,Corporate Air Desk,52739,true,true
+TX-00025,2026-11,E-IN,CC-IN-ADMIN,6200,Metro Cabs,361416,true,true
+TX-00026,2026-11,E-IN,CC-IN-SALES,6200,SkyRoute Travel,254387,true,true
+TX-00027,2026-11,E-IN,CC-IN-OPS,6200,Business Stay Group,713008,true,true
+TX-00028,2026-11,E-IN,CC-IN-ADMIN,6200,Metro Cabs,87122,true,false
+TX-00029,2026-11,E-IN,CC-IN-SALES,6200,Metro Cabs,517823,true,false
+TX-00030,2026-11,E-IN,CC-IN-RND,6200,Metro Cabs,508516,true,true
+TX-00031,2026-11,E-IN,CC-IN-SALES,6200,Business Stay Group,186137,true,true
+TX-00032,2026-11,E-IN,CC-IN-ADMIN,6200,Corporate Air Desk,173986,true,true
+TX-00033,2026-11,E-IN,CC-IN-SALES,6200,Corporate Air Desk,167523,true,true
+TX-00034,2026-11,E-IN,CC-IN-RND,6200,Business Stay Group,480337,true,true
+TX-00035,2026-11,E-IN,CC-IN-RND,6200,SkyRoute Travel,332979,true,true
+TX-00036,2026-11,E-IN,CC-IN-OPS,6200,Business Stay Group,231637,true,true
+TX-00037,2026-11,E-IN,CC-IN-SALES,6200,Corporate Air Desk,294976,true,true
+TX-00038,2026-11,E-IN,CC-IN-RND,6200,Metro Cabs,299888,true,true
+TX-00039,2026-11,E-IN,CC-IN-SALES,6200,Corporate Air Desk,133140,true,false
+TX-00040,2026-11,E-IN,CC-IN-ADMIN,6200,Metro Cabs,592278,true,true
+TX-00041,2026-11,E-EU,CC-EU-ADMIN,6200,SkyRoute Travel,207315,true,true
+TX-00042,2026-11,E-EU,CC-EU-RND,6200,Corporate Air Desk,99959,true,true
+TX-00043,2026-11,E-EU,CC-EU-SALES,6200,Business Stay Group,349856,true,true
+TX-00044,2026-11,E-EU,CC-EU-RND,6200,SkyRoute Travel,393520,true,true
+TX-00045,2026-11,E-EU,CC-EU-OPS,6200,Metro Cabs,356351,true,true
+TX-00046,2026-11,E-EU,CC-EU-OPS,6200,SkyRoute Travel,491855,true,true
+TX-00047,2026-11,E-EU,CC-EU-ADMIN,6200,SkyRoute Travel,368260,true,true
+TX-00048,2026-11,E-EU,CC-EU-RND,6200,Corporate Air Desk,440252,true,false
+TX-00049,2026-11,E-EU,CC-EU-SALES,6200,Metro Cabs,470203,true,true
+TX-00050,2026-11,E-EU,CC-EU-ADMIN,6200,Business Stay Group,145788,true,false
+TX-00051,2026-11,E-EU,CC-EU-SALES,6200,SkyRoute Travel,63692,true,true
+TX-00052,2026-11,E-EU,CC-EU-OPS,6200,SkyRoute Travel,285261,true,true
+TX-00053,2026-11,E-EU,CC-EU-ADMIN,6200,Corporate Air Desk,94907,true,true
+TX-00054,2026-11,E-EU,CC-EU-SALES,6200,SkyRoute Travel,358697,true,true
+TX-00055,2026-11,E-EU,CC-EU-RND,6200,Corporate Air Desk,299515,true,false
+TX-00056,2026-11,E-EU,CC-EU-OPS,6200,Metro Cabs,95448,true,true
+TX-00057,2026-11,E-EU,CC-EU-OPS,6200,SkyRoute Travel,153186,true,true
+TX-00058,2026-11,E-EU,CC-EU-ADMIN,6200,Business Stay Group,331812,true,true
+TX-00059,2026-11,E-EU,CC-EU-RND,6200,Metro Cabs,385040,true,true
+TX-00060,2026-11,E-EU,CC-EU-OPS,6200,Business Stay Group,326760,true,false
+TX-00061,2026-11,E-EU,CC-EU-SALES,6200,Metro Cabs,498531,true,true
+TX-00062,2026-11,E-EU,CC-EU-OPS,6200,Metro Cabs,154810,true,true
+TX-00063,2026-11,E-EU,CC-EU-RND,6200,Business Stay Group,235823,true,true
+TX-00064,2026-11,E-EU,CC-EU-RND,6200,Corporate Air Desk,208939,true,true
+TX-00065,2026-11,E-EU,CC-EU-SALES,6200,SkyRoute Travel,184220,true,true
+TX-00066,2026-11,E-NA,CC-NA-SALES,6200,Business Stay Group,311475,true,true
+TX-00067,2026-11,E-NA,CC-NA-RND,6200,SkyRoute Travel,345133,true,true
+TX-00068,2026-11,E-NA,CC-NA-RND,6200,Metro Cabs,191943,true,true
+TX-00069,2026-11,E-NA,CC-NA-ADMIN,6200,SkyRoute Travel,352047,true,true
+TX-00070,2026-11,E-NA,CC-NA-RND,6200,Business Stay Group,82053,true,true
+TX-00071,2026-11,E-NA,CC-NA-OPS,6200,Business Stay Group,337856,true,true
+TX-00072,2026-11,E-NA,CC-NA-RND,6200,Metro Cabs,124626,true,true
+TX-00073,2026-11,E-NA,CC-NA-ADMIN,6200,SkyRoute Travel,504510,true,false
+TX-00074,2026-11,E-NA,CC-NA-ADMIN,6200,Business Stay Group,77323,true,true
+TX-00075,2026-11,E-NA,CC-NA-ADMIN,6200,SkyRoute Travel,340585,true,true
+TX-00076,2026-11,E-NA,CC-NA-OPS,6200,SkyRoute Travel,503964,true,false
+TX-00077,2026-11,E-NA,CC-NA-ADMIN,6200,Corporate Air Desk,284548,true,true
+TX-00078,2026-11,E-NA,CC-NA-ADMIN,6200,SkyRoute Travel,373333,true,false
+TX-00079,2026-11,E-NA,CC-NA-RND,6200,Corporate Air Desk,134997,true,false
+TX-00080,2026-11,E-NA,CC-NA-RND,6200,Business Stay Group,164652,true,true
+TX-00081,2026-11,E-NA,CC-NA-ADMIN,6200,Business Stay Group,216868,true,true
+TX-00082,2026-11,E-NA,CC-NA-ADMIN,6200,Business Stay Group,530890,true,true
+TX-00083,2026-11,E-NA,CC-NA-ADMIN,6200,Business Stay Group,414997,true,false
+TX-00084,2026-11,E-NA,CC-NA-RND,6200,SkyRoute Travel,182846,true,true
+TX-00085,2026-11,E-NA,CC-NA-SALES,6200,Metro Cabs,125354,true,true
+TX-00086,2026-11,E-IN,CC-IN-RND,6300,Insight Partners Group,1887889,true,false
+TX-00087,2026-11,E-IN,CC-IN-SALES,6300,Northbridge Advisory,1838584,true,true
+TX-00088,2026-11,E-IN,CC-IN-ADMIN,6300,Lexon Professional Services,904978,true,true
+TX-00089,2026-11,E-IN,CC-IN-RND,6300,Lexon Professional Services,3947549,true,false
+TX-00090,2026-11,E-IN,CC-IN-RND,6300,Northbridge Advisory,424656,true,true
+TX-00091,2026-11,E-IN,CC-IN-SALES,6300,Insight Partners Group,4265643,true,false
+TX-00092,2026-11,E-IN,CC-IN-ADMIN,6300,Lexon Professional Services,3820311,true,true
+TX-00093,2026-11,E-IN,CC-IN-ADMIN,6300,Lexon Professional Services,1383710,true,true
+TX-00094,2026-11,E-IN,CC-IN-ADMIN,6300,Clearpath Consulting,2940781,true,true
+TX-00095,2026-11,E-IN,CC-IN-SALES,6300,Clearpath Consulting,1685899,true,false
+TX-00096,2026-11,E-EU,CC-EU-SALES,6300,Insight Partners Group,1949598,true,false
+TX-00097,2026-11,E-EU,CC-EU-OPS,6300,Lexon Professional Services,1813408,true,true
+TX-00098,2026-11,E-EU,CC-EU-RND,6300,Clearpath Consulting,940011,true,false
+TX-00099,2026-11,E-EU,CC-EU-ADMIN,6300,Northbridge Advisory,1857818,true,false
+TX-00100,2026-11,E-EU,CC-EU-OPS,6300,Insight Partners Group,510715,true,false
+TX-00101,2026-11,E-EU,CC-EU-SALES,6300,Insight Partners Group,1857077,true,false
+TX-00102,2026-11,E-EU,CC-EU-RND,6300,Clearpath Consulting,294586,true,false
+TX-00103,2026-11,E-EU,CC-EU-OPS,6300,Insight Partners Group,1276787,true,true
+TX-00104,2026-11,E-NA,CC-NA-RND,6300,Clearpath Consulting,2076694,true,false
+TX-00105,2026-11,E-NA,CC-NA-SALES,6300,Northbridge Advisory,1108961,true,true
+TX-00106,2026-11,E-NA,CC-NA-RND,6300,Clearpath Consulting,1976512,true,true
+TX-00107,2026-11,E-NA,CC-NA-RND,6300,Clearpath Consulting,2015471,true,false
+TX-00108,2026-11,E-NA,CC-NA-RND,6300,Insight Partners Group,230280,true,true
+TX-00109,2026-11,E-NA,CC-NA-SALES,6300,Clearpath Consulting,992082,true,false
+TX-00110,2026-11,E-IN,CC-IN-ADMIN,6400,Skillgrid Resourcing,2279632,true,true
+TX-00111,2026-11,E-IN,CC-IN-OPS,6400,Skillgrid Resourcing,943226,true,true
+TX-00112,2026-11,E-IN,CC-IN-ADMIN,6400,Skillgrid Resourcing,2782822,true,true
+TX-00113,2026-11,E-IN,CC-IN-OPS,6400,FlexWorks Contractors,647831,true,true
+TX-00114,2026-11,E-IN,CC-IN-ADMIN,6400,Skillgrid Resourcing,1468825,true,true
+TX-00115,2026-11,E-IN,CC-IN-SALES,6400,Skillgrid Resourcing,1348629,true,false
+TX-00116,2026-11,E-IN,CC-IN-ADMIN,6400,ProCrew Services,2097302,true,true
+TX-00117,2026-11,E-IN,CC-IN-SALES,6400,FlexWorks Contractors,882110,true,true
+TX-00118,2026-11,E-IN,CC-IN-OPS,6400,Talent Bridge Staffing,701817,true,true
+TX-00119,2026-11,E-IN,CC-IN-SALES,6400,ProCrew Services,1062402,true,true
+TX-00120,2026-11,E-IN,CC-IN-ADMIN,6400,FlexWorks Contractors,2351953,true,true
+TX-00121,2026-11,E-IN,CC-IN-RND,6400,Talent Bridge Staffing,1187690,true,true
+TX-00122,2026-11,E-IN,CC-IN-ADMIN,6400,Skillgrid Resourcing,1731624,true,false
+TX-00123,2026-11,E-IN,CC-IN-OPS,6400,FlexWorks Contractors,556157,true,true
+TX-00124,2026-11,E-IN,CC-IN-RND,6400,Skillgrid Resourcing,854607,true,true
+TX-00125,2026-11,E-IN,CC-IN-ADMIN,6400,FlexWorks Contractors,307618,true,false
+TX-00126,2026-11,E-IN,CC-IN-OPS,6400,Talent Bridge Staffing,2705408,true,true
+TX-00127,2026-11,E-IN,CC-IN-RND,6400,Talent Bridge Staffing,840347,true,false
+TX-00128,2026-11,E-EU,CC-EU-OPS,6400,Talent Bridge Staffing,1415651,true,true
+TX-00129,2026-11,E-EU,CC-EU-ADMIN,6400,Skillgrid Resourcing,123812,true,true
+TX-00130,2026-11,E-EU,CC-EU-OPS,6400,ProCrew Services,661012,true,false
+TX-00131,2026-11,E-EU,CC-EU-RND,6400,Talent Bridge Staffing,805801,true,false
+TX-00132,2026-11,E-EU,CC-EU-ADMIN,6400,FlexWorks Contractors,1331234,true,true
+TX-00133,2026-11,E-EU,CC-EU-ADMIN,6400,ProCrew Services,535666,true,false
+TX-00134,2026-11,E-EU,CC-EU-ADMIN,6400,Talent Bridge Staffing,960821,true,false
+TX-00135,2026-11,E-EU,CC-EU-RND,6400,FlexWorks Contractors,1004309,true,true
+TX-00136,2026-11,E-EU,CC-EU-ADMIN,6400,Skillgrid Resourcing,1377791,true,true
+TX-00137,2026-11,E-EU,CC-EU-RND,6400,Skillgrid Resourcing,1448395,true,true
+TX-00138,2026-11,E-EU,CC-EU-SALES,6400,Talent Bridge Staffing,817056,true,true
+TX-00139,2026-11,E-EU,CC-EU-OPS,6400,Skillgrid Resourcing,768452,true,true
+TX-00140,2026-11,E-NA,CC-NA-SALES,6400,FlexWorks Contractors,1187481,true,false
+TX-00141,2026-11,E-NA,CC-NA-OPS,6400,Talent Bridge Staffing,986426,true,true
+TX-00142,2026-11,E-NA,CC-NA-OPS,6400,ProCrew Services,671579,true,true
+TX-00143,2026-11,E-NA,CC-NA-RND,6400,FlexWorks Contractors,1185386,true,true
+TX-00144,2026-11,E-NA,CC-NA-OPS,6400,Skillgrid Resourcing,676466,true,true
+TX-00145,2026-11,E-NA,CC-NA-RND,6400,Skillgrid Resourcing,514505,true,false
+TX-00146,2026-11,E-NA,CC-NA-ADMIN,6400,Skillgrid Resourcing,359525,true,false
+TX-00147,2026-11,E-NA,CC-NA-SALES,6400,Skillgrid Resourcing,1002482,true,true
+TX-00148,2026-11,E-NA,CC-NA-RND,6400,Skillgrid Resourcing,444695,true,true
+TX-00149,2026-11,E-NA,CC-NA-RND,6400,Skillgrid Resourcing,1971455,true,false

@@ -1,0 +1,8 @@
+node_modules
+.next
+coverage
+pnpm-lock.yaml
+data/fixtures
+data/golden
+docs/calc-registry.md
+docs/data-dictionary.md
