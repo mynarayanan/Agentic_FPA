@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+### Sprint 6 - the five screens
+
+- Screens: cockpit, variance investigation, forecast intelligence, corrective actions, finance assistant (`docs/ui.md`).
+- Engine 0.5.0: `compareForecasts` (FCS-CMP-001) reconciles forecast drivers month by month; `runScenario` (SCN-WHI-001) powers the what-if.
+- Narrative: questions are routed by topic; unanswerable ones point to the right screen; questions are treated as untrusted text and injection attempts cannot introduce numbers.
+- API: `/api/forecast`, `/api/scenario`, `/api/assistant`. AI wording on `/api/narrative` and `/api/assistant` now requires the access token.
+- `pnpm dev:db` runs the app locally on an in-memory Postgres with the fixtures. The app uses a normal Postgres connection for any non-Neon database.
+- Accessibility: every table has a caption and every chart a text label (found and fixed by tests); verdicts are never colour-only.
+
+### Sprint 5 - corrective actions, approvals, audit
+
+- Engine 0.4.0: `assessActions` (ACT-IMP-001) nets overlaps, confidence, phasing and cost: the 14.3 Cr headline becomes 3.5 Cr in-year profit covering half the 7 Cr gap.
+- `@fpa/audit`: pure approval state machine (three levels, segregation of duties, delegation limit, mandatory justification), SHA-256 hash-chained log, replay verification. 100% coverage, property-tested.
+- `@fpa/db`: `recommendation` and `approval_event` tables; Postgres triggers make the log append-only; evidence queries; transactional event recording; audit verification; developer-only reset.
+- API: `GET /api/recommendations`, `POST /api/recommendations/generate`, `GET /api/recommendations/:id`, `POST /api/recommendations/:id/events`, `GET /api/audit/verify`. Writes require `API_WRITE_TOKEN`.
+- CLI: `pnpm db:verify` also checks the audit log.
+
 ### Sprint 4 - narrative layer
 
 - `@fpa/narrative`: closed fact sheet, placeholder rendering, number-guard, one corrective retry, guarded template fallback, Anthropic client, `eval:live` script.

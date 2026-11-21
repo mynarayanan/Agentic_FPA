@@ -7,6 +7,8 @@ import {
   primaryKey,
   text,
   index,
+  jsonb,
+  unique,
 } from 'drizzle-orm/pg-core';
 import type { TableName } from '@fpa/semantic';
 
@@ -230,3 +232,54 @@ export const TABLES = {
   fact_planner_override: factPlannerOverride,
 } satisfies Record<TableName, unknown>;
 export const LOAD_ORDER = Object.keys(TABLES) as TableName[];
+
+// ---------------------------------------------------------------------------------------------
+// Approval workflow and decision log. These are NOT part of the 19 fixture tables: the data loader
+// never touches them. They hold plain-text references (no foreign keys to dim_*) so that reloading
+// reference data can never orphan or cascade-delete audit history.
+// ---------------------------------------------------------------------------------------------
+
+/** One recommendation (an assessed corrective action) and its current approval state. */
+export const recommendation = pgTable(
+  'recommendation',
+  {
+    id: text('id').primaryKey(), // AI-INS-00001
+    period: t('period'),
+    scope: t('scope'), // 'GROUP'
+    action_id: t('action_id'),
+    title: t('title'),
+    owner_role: t('owner_role'),
+    status: t('status'),
+    revision: integer('revision').notNull(),
+    amount_inr: inr('amount_inr'),
+    proposed_by: t('proposed_by'),
+    requested_by: text('requested_by'),
+    assessment: jsonb('assessment').notNull(),
+    evidence: jsonb('evidence').notNull(),
+    source: jsonb('source').notNull(),
+    created_at: t('created_at'),
+  },
+  (x) => [unique('recommendation_period_scope_action').on(x.period, x.scope, x.action_id)],
+);
+
+/** Append-only, hash-chained log of every approval event. UPDATE, DELETE and TRUNCATE are blocked by triggers. */
+export const approvalEvent = pgTable(
+  'approval_event',
+  {
+    recommendation_id: t('recommendation_id').references(() => recommendation.id),
+    n: integer('n').notNull(),
+    revision: integer('revision').notNull(),
+    type: t('type'),
+    actor_id: t('actor_id'),
+    actor_role: t('actor_role'),
+    from_state: text('from_state'),
+    to_state: t('to_state'),
+    amount_inr: inr('amount_inr'),
+    justification: text('justification'),
+    requested_by: text('requested_by'),
+    at: t('at'),
+    prev_hash: t('prev_hash'),
+    hash: t('hash'),
+  },
+  (x) => [primaryKey({ columns: [x.recommendation_id, x.n] })],
+);

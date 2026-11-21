@@ -23,7 +23,8 @@
     "db:migrate": "pnpm --filter @fpa/db cli migrate",
     "db:load": "pnpm --filter @fpa/db cli load --yes",
     "db:verify": "pnpm --filter @fpa/db cli verify",
-    "eval:live": "pnpm --filter @fpa/narrative eval:live"
+    "eval:live": "pnpm --filter @fpa/narrative eval:live",
+    "dev:db": "pnpm --filter @fpa/db dev-db"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",

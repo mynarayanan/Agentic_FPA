@@ -8,6 +8,20 @@
       "when": 1794750730169,
       "tag": "0000_sleepy_agent_zero",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1794882472091,
+      "tag": "0001_round_sabra",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1794882472912,
+      "tag": "0002_audit_immutability",
+      "breakpoints": true
     }
   ]
 }

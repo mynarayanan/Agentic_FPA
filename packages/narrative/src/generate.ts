@@ -5,6 +5,8 @@ import { checkNarrative, renderStatement } from './guard';
 import type { LlmClient } from './llm';
 import { PROMPT_VERSION, SYSTEM_PROMPT, buildRetryMessage, buildUserMessage } from './prompt';
 import { templateNarrative } from './template';
+import { cleanQuestion, topicOf } from './topic';
+import type { Topic } from './topic';
 import { narrativeSchema } from './types';
 import type { FactSheet, NarrativeDraft, NarrativeResult, Violation } from './types';
 
@@ -41,6 +43,8 @@ export function parseDraft(raw: string): { draft: NarrativeDraft } | { violation
   return { draft: parsed.data };
 }
 
+type Core = Omit<NarrativeResult, 'topic' | 'question'>;
+
 function finish(
   sheet: FactSheet,
   draft: NarrativeDraft,
@@ -48,7 +52,7 @@ function finish(
     NarrativeResult,
     'status' | 'fallback_reason' | 'model' | 'prompt_hash' | 'attempts' | 'violations'
   >,
-): NarrativeResult {
+): Core {
   return {
     ...meta,
     prompt_version: PROMPT_VERSION,
@@ -59,14 +63,15 @@ function finish(
 }
 
 function templateResult(
+  topic: Topic,
   sheet: FactSheet,
   reason: NonNullable<NarrativeResult['fallback_reason']>,
   model: string | null,
   promptHash: string | null,
   attempts: number,
   violations: Violation[],
-): NarrativeResult {
-  const draft = templateNarrative(sheet);
+): Core {
+  const draft = templateNarrative(sheet, topic);
   const bad = checkNarrative(draft, sheet);
   // Fail closed: the template is guarded too. If this ever fires it is a bug, never shown to a user.
   if (bad.length > 0)
@@ -85,15 +90,15 @@ function templateResult(
  * Produce a guarded narrative for a variance report. The model may phrase, never calculate: its output is
  * accepted only if every number traces to a fact it cited. Otherwise one corrective retry, then a template.
  */
-export async function generateNarrative(
+async function generateCore(
   llm: LlmClient | null,
   report: VarianceReport,
-  opts: { maxRetries?: number } = {},
-): Promise<NarrativeResult> {
+  opts: { maxRetries?: number; question: string | null; topic: Topic },
+): Promise<Core> {
   const sheet = buildFactSheet(report);
-  if (!llm) return templateResult(sheet, 'NO_LLM', null, null, 0, []);
+  if (!llm) return templateResult(opts.topic, sheet, 'NO_LLM', null, null, 0, []);
 
-  const user = buildUserMessage(sheet);
+  const user = buildUserMessage(sheet, opts.question);
   const promptHash = sha(`${PROMPT_VERSION}\n${SYSTEM_PROMPT}\n${user}`);
   const messages: Array<{ role: 'user' | 'assistant'; content: string }> = [
     { role: 'user', content: user },
@@ -106,7 +111,7 @@ export async function generateNarrative(
     try {
       raw = await llm.complete({ system: SYSTEM_PROMPT, messages, maxTokens: 1500 });
     } catch {
-      return templateResult(sheet, 'LLM_ERROR', llm.model, promptHash, attempt, []);
+      return templateResult(opts.topic, sheet, 'LLM_ERROR', llm.model, promptHash, attempt, []);
     }
     const parsed = parseDraft(raw);
     violations = 'draft' in parsed ? checkNarrative(parsed.draft, sheet) : parsed.violations;
@@ -125,5 +130,29 @@ export async function generateNarrative(
       { role: 'user', content: buildRetryMessage(violations) },
     );
   }
-  return templateResult(sheet, 'GUARD_FAILED', llm.model, promptHash, maxAttempts, violations);
+  return templateResult(
+    opts.topic,
+    sheet,
+    'GUARD_FAILED',
+    llm.model,
+    promptHash,
+    maxAttempts,
+    violations,
+  );
+}
+
+/**
+ * Produce a guarded narrative for a variance report, optionally focused on a user question.
+ * The model may phrase, never calculate: its output is accepted only if every number traces to a fact it
+ * cited. Otherwise one corrective retry, then a deterministic template for the same topic.
+ */
+export async function generateNarrative(
+  llm: LlmClient | null,
+  report: VarianceReport,
+  opts: { maxRetries?: number; question?: string | null } = {},
+): Promise<NarrativeResult> {
+  const question = cleanQuestion(opts.question);
+  const topic = topicOf(question);
+  const core = await generateCore(llm, report, { maxRetries: opts.maxRetries, question, topic });
+  return { ...core, question, topic };
 }

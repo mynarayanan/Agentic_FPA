@@ -7,11 +7,12 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc -p tsconfig.json",
-    "test": "echo \"no unit tests in web yet (see e2e)\"",
-    "test:ci": "echo \"no unit tests in web yet (see e2e)\"",
+    "test": "vitest run",
+    "test:ci": "vitest run",
     "e2e": "playwright test"
   },
   "dependencies": {
+    "@fpa/audit": "workspace:*",
     "@fpa/db": "workspace:*",
     "@fpa/engine": "workspace:*",
     "@fpa/narrative": "workspace:*",
@@ -20,9 +21,12 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@fpa/semantic": "workspace:*",
     "@playwright/test": "^1.49.1",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2"
+    "@types/react-dom": "^19.0.2",
+    "fast-check": "^3.23.1",
+    "vitest": "^2.1.8"
   }
 }

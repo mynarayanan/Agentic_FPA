@@ -1,0 +1,1635 @@
+{
+  "id": "928b7ba8-3840-48cd-9630-20e11404b653",
+  "prevId": "1a31aa06-6cf2-4af7-968f-42ec58751c0f",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.approval_event": {
+      "name": "approval_event",
+      "schema": "",
+      "columns": {
+        "recommendation_id": {
+          "name": "recommendation_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "n": {
+          "name": "n",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "revision": {
+          "name": "revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "actor_id": {
+          "name": "actor_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "actor_role": {
+          "name": "actor_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "from_state": {
+          "name": "from_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "to_state": {
+          "name": "to_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_inr": {
+          "name": "amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "justification": {
+          "name": "justification",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "requested_by": {
+          "name": "requested_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "at": {
+          "name": "at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "prev_hash": {
+          "name": "prev_hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "hash": {
+          "name": "hash",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "approval_event_recommendation_id_recommendation_id_fk": {
+          "name": "approval_event_recommendation_id_recommendation_id_fk",
+          "tableFrom": "approval_event",
+          "columnsFrom": ["recommendation_id"],
+          "tableTo": "recommendation",
+          "columnsTo": ["id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "approval_event_recommendation_id_n_pk": {
+          "name": "approval_event_recommendation_id_n_pk",
+          "columns": ["recommendation_id", "n"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_account": {
+      "name": "dim_account",
+      "schema": "",
+      "columns": {
+        "account_id": {
+          "name": "account_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "type": {
+          "name": "type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "grp": {
+          "name": "grp",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discretionary": {
+          "name": "discretionary",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_action": {
+      "name": "dim_action",
+      "schema": "",
+      "columns": {
+        "action_id": {
+          "name": "action_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "driver_ref": {
+          "name": "driver_ref",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_role": {
+          "name": "owner_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "potential_inr": {
+          "name": "potential_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "timeline_days": {
+          "name": "timeline_days",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "implementation_cost_inr": {
+          "name": "implementation_cost_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "overlaps_with": {
+          "name": "overlaps_with",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "depends_on": {
+          "name": "depends_on",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "risk": {
+          "name": "risk",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "confidence": {
+          "name": "confidence",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_bu": {
+      "name": "dim_bu",
+      "schema": "",
+      "columns": {
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_customer": {
+      "name": "dim_customer",
+      "schema": "",
+      "columns": {
+        "customer_id": {
+          "name": "customer_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "region": {
+          "name": "region",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "segment": {
+          "name": "segment",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "dim_customer_entity_id_dim_entity_entity_id_fk": {
+          "name": "dim_customer_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "dim_customer",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_entity": {
+      "name": "dim_entity",
+      "schema": "",
+      "columns": {
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "country": {
+          "name": "country",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "functional_currency": {
+          "name": "functional_currency",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_period": {
+      "name": "dim_period",
+      "schema": "",
+      "columns": {
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "fiscal_year": {
+          "name": "fiscal_year",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fiscal_month": {
+          "name": "fiscal_month",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "is_closed_actual": {
+          "name": "is_closed_actual",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_product": {
+      "name": "dim_product",
+      "schema": "",
+      "columns": {
+        "sku_id": {
+          "name": "sku_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "budget_list_price_inr": {
+          "name": "budget_list_price_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "std_margin_bps": {
+          "name": "std_margin_bps",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "dim_product_bu_id_dim_bu_bu_id_fk": {
+          "name": "dim_product_bu_id_dim_bu_bu_id_fk",
+          "tableFrom": "dim_product",
+          "columnsFrom": ["bu_id"],
+          "tableTo": "dim_bu",
+          "columnsTo": ["bu_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_supplier": {
+      "name": "dim_supplier",
+      "schema": "",
+      "columns": {
+        "supplier_id": {
+          "name": "supplier_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contract_end_period": {
+          "name": "contract_end_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "price_escalation_bps": {
+          "name": "price_escalation_bps",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quality_score": {
+          "name": "quality_score",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "alt_sources": {
+          "name": "alt_sources",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "renegotiation_candidate": {
+          "name": "renegotiation_candidate",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.dim_version": {
+      "name": "dim_version",
+      "schema": "",
+      "columns": {
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fiscal_year": {
+          "name": "fiscal_year",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "as_of_period": {
+          "name": "as_of_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_demand_assumption": {
+      "name": "fact_demand_assumption",
+      "schema": "",
+      "columns": {
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "growth_bps": {
+          "name": "growth_bps",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_demand_assumption_version_id_dim_version_version_id_fk": {
+          "name": "fact_demand_assumption_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_demand_assumption",
+          "columnsFrom": ["version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_demand_assumption_bu_id_dim_bu_bu_id_fk": {
+          "name": "fact_demand_assumption_bu_id_dim_bu_bu_id_fk",
+          "tableFrom": "fact_demand_assumption",
+          "columnsFrom": ["bu_id"],
+          "tableTo": "dim_bu",
+          "columnsTo": ["bu_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_demand_assumption_version_id_bu_id_pk": {
+          "name": "fact_demand_assumption_version_id_bu_id_pk",
+          "columns": ["version_id", "bu_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_forecast_bridge": {
+      "name": "fact_forecast_bridge",
+      "schema": "",
+      "columns": {
+        "from_version_id": {
+          "name": "from_version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "to_version_id": {
+          "name": "to_version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "driver": {
+          "name": "driver",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sub_driver": {
+          "name": "sub_driver",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_inr": {
+          "name": "amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_forecast_bridge_from_version_id_dim_version_version_id_fk": {
+          "name": "fact_forecast_bridge_from_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_forecast_bridge",
+          "columnsFrom": ["from_version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_forecast_bridge_to_version_id_dim_version_version_id_fk": {
+          "name": "fact_forecast_bridge_to_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_forecast_bridge",
+          "columnsFrom": ["to_version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_forecast_bridge_period_dim_period_period_fk": {
+          "name": "fact_forecast_bridge_period_dim_period_period_fk",
+          "tableFrom": "fact_forecast_bridge",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_forecast_bridge_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_forecast_bridge_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_forecast_bridge",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_forecast_bridge_bu_id_dim_bu_bu_id_fk": {
+          "name": "fact_forecast_bridge_bu_id_dim_bu_bu_id_fk",
+          "tableFrom": "fact_forecast_bridge",
+          "columnsFrom": ["bu_id"],
+          "tableTo": "dim_bu",
+          "columnsTo": ["bu_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_forecast_bridge_driver_sub_driver_period_entity_id_bu_id_pk": {
+          "name": "fact_forecast_bridge_driver_sub_driver_period_entity_id_bu_id_pk",
+          "columns": ["driver", "sub_driver", "period", "entity_id", "bu_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_gl": {
+      "name": "fact_gl",
+      "schema": "",
+      "columns": {
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "account_id": {
+          "name": "account_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_inr": {
+          "name": "amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "fact_gl_period_idx": {
+          "name": "fact_gl_period_idx",
+          "columns": [
+            {
+              "expression": "period",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "version_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "with": {},
+          "method": "btree",
+          "concurrently": false
+        }
+      },
+      "foreignKeys": {
+        "fact_gl_version_id_dim_version_version_id_fk": {
+          "name": "fact_gl_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_gl",
+          "columnsFrom": ["version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_gl_period_dim_period_period_fk": {
+          "name": "fact_gl_period_dim_period_period_fk",
+          "tableFrom": "fact_gl",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_gl_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_gl_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_gl",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_gl_bu_id_dim_bu_bu_id_fk": {
+          "name": "fact_gl_bu_id_dim_bu_bu_id_fk",
+          "tableFrom": "fact_gl",
+          "columnsFrom": ["bu_id"],
+          "tableTo": "dim_bu",
+          "columnsTo": ["bu_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_gl_account_id_dim_account_account_id_fk": {
+          "name": "fact_gl_account_id_dim_account_account_id_fk",
+          "tableFrom": "fact_gl",
+          "columnsFrom": ["account_id"],
+          "tableTo": "dim_account",
+          "columnsTo": ["account_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_gl_version_id_period_entity_id_bu_id_account_id_pk": {
+          "name": "fact_gl_version_id_period_entity_id_bu_id_account_id_pk",
+          "columns": ["version_id", "period", "entity_id", "bu_id", "account_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_headcount": {
+      "name": "fact_headcount",
+      "schema": "",
+      "columns": {
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "department": {
+          "name": "department",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "headcount": {
+          "name": "headcount",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cost_inr": {
+          "name": "cost_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_headcount_version_id_dim_version_version_id_fk": {
+          "name": "fact_headcount_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_headcount",
+          "columnsFrom": ["version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_headcount_period_dim_period_period_fk": {
+          "name": "fact_headcount_period_dim_period_period_fk",
+          "tableFrom": "fact_headcount",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_headcount_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_headcount_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_headcount",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_headcount_version_id_period_entity_id_department_pk": {
+          "name": "fact_headcount_version_id_period_entity_id_department_pk",
+          "columns": ["version_id", "period", "entity_id", "department"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_opex_txn": {
+      "name": "fact_opex_txn",
+      "schema": "",
+      "columns": {
+        "txn_id": {
+          "name": "txn_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cost_center": {
+          "name": "cost_center",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "account_id": {
+          "name": "account_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vendor": {
+          "name": "vendor",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_inr": {
+          "name": "amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discretionary": {
+          "name": "discretionary",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pre_approved": {
+          "name": "pre_approved",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_opex_txn_period_dim_period_period_fk": {
+          "name": "fact_opex_txn_period_dim_period_period_fk",
+          "tableFrom": "fact_opex_txn",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_opex_txn_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_opex_txn_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_opex_txn",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_opex_txn_account_id_dim_account_account_id_fk": {
+          "name": "fact_opex_txn_account_id_dim_account_account_id_fk",
+          "tableFrom": "fact_opex_txn",
+          "columnsFrom": ["account_id"],
+          "tableTo": "dim_account",
+          "columnsTo": ["account_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_order_book": {
+      "name": "fact_order_book",
+      "schema": "",
+      "columns": {
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "customer_id": {
+          "name": "customer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sku_id": {
+          "name": "sku_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value_inr": {
+          "name": "value_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "original_delivery_period": {
+          "name": "original_delivery_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "current_delivery_period": {
+          "name": "current_delivery_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "delay_reason": {
+          "name": "delay_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_order_book_customer_id_dim_customer_customer_id_fk": {
+          "name": "fact_order_book_customer_id_dim_customer_customer_id_fk",
+          "tableFrom": "fact_order_book",
+          "columnsFrom": ["customer_id"],
+          "tableTo": "dim_customer",
+          "columnsTo": ["customer_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_order_book_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_order_book_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_order_book",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_order_book_sku_id_dim_product_sku_id_fk": {
+          "name": "fact_order_book_sku_id_dim_product_sku_id_fk",
+          "tableFrom": "fact_order_book",
+          "columnsFrom": ["sku_id"],
+          "tableTo": "dim_product",
+          "columnsTo": ["sku_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_planner_override": {
+      "name": "fact_planner_override",
+      "schema": "",
+      "columns": {
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "driver": {
+          "name": "driver",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "delta_inr": {
+          "name": "delta_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reason": {
+          "name": "reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_planner_override_version_id_dim_version_version_id_fk": {
+          "name": "fact_planner_override_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_planner_override",
+          "columnsFrom": ["version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_planner_override_period_dim_period_period_fk": {
+          "name": "fact_planner_override_period_dim_period_period_fk",
+          "tableFrom": "fact_planner_override",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_planner_override_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_planner_override_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_planner_override",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_planner_override_bu_id_dim_bu_bu_id_fk": {
+          "name": "fact_planner_override_bu_id_dim_bu_bu_id_fk",
+          "tableFrom": "fact_planner_override",
+          "columnsFrom": ["bu_id"],
+          "tableTo": "dim_bu",
+          "columnsTo": ["bu_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_planner_override_version_id_period_entity_id_bu_id_pk": {
+          "name": "fact_planner_override_version_id_period_entity_id_bu_id_pk",
+          "columns": ["version_id", "period", "entity_id", "bu_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_sales_line": {
+      "name": "fact_sales_line",
+      "schema": "",
+      "columns": {
+        "line_key": {
+          "name": "line_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "customer_id": {
+          "name": "customer_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sku_id": {
+          "name": "sku_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "bu_id": {
+          "name": "bu_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quantity": {
+          "name": "quantity",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "list_price_inr": {
+          "name": "list_price_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "gross_amount_inr": {
+          "name": "gross_amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "discount_inr": {
+          "name": "discount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "net_amount_inr": {
+          "name": "net_amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "order_id": {
+          "name": "order_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "delayed_to_period": {
+          "name": "delayed_to_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_sales_line_version_id_dim_version_version_id_fk": {
+          "name": "fact_sales_line_version_id_dim_version_version_id_fk",
+          "tableFrom": "fact_sales_line",
+          "columnsFrom": ["version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_sales_line_period_dim_period_period_fk": {
+          "name": "fact_sales_line_period_dim_period_period_fk",
+          "tableFrom": "fact_sales_line",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_sales_line_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_sales_line_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_sales_line",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_sales_line_customer_id_dim_customer_customer_id_fk": {
+          "name": "fact_sales_line_customer_id_dim_customer_customer_id_fk",
+          "tableFrom": "fact_sales_line",
+          "columnsFrom": ["customer_id"],
+          "tableTo": "dim_customer",
+          "columnsTo": ["customer_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_sales_line_sku_id_dim_product_sku_id_fk": {
+          "name": "fact_sales_line_sku_id_dim_product_sku_id_fk",
+          "tableFrom": "fact_sales_line",
+          "columnsFrom": ["sku_id"],
+          "tableTo": "dim_product",
+          "columnsTo": ["sku_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_sales_line_bu_id_dim_bu_bu_id_fk": {
+          "name": "fact_sales_line_bu_id_dim_bu_bu_id_fk",
+          "tableFrom": "fact_sales_line",
+          "columnsFrom": ["bu_id"],
+          "tableTo": "dim_bu",
+          "columnsTo": ["bu_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_sales_line_line_key_version_id_pk": {
+          "name": "fact_sales_line_line_key_version_id_pk",
+          "columns": ["line_key", "version_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fact_supplier_spend": {
+      "name": "fact_supplier_spend",
+      "schema": "",
+      "columns": {
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "supplier_id": {
+          "name": "supplier_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_inr": {
+          "name": "amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fact_supplier_spend_period_dim_period_period_fk": {
+          "name": "fact_supplier_spend_period_dim_period_period_fk",
+          "tableFrom": "fact_supplier_spend",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_supplier_spend_supplier_id_dim_supplier_supplier_id_fk": {
+          "name": "fact_supplier_spend_supplier_id_dim_supplier_supplier_id_fk",
+          "tableFrom": "fact_supplier_spend",
+          "columnsFrom": ["supplier_id"],
+          "tableTo": "dim_supplier",
+          "columnsTo": ["supplier_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fact_supplier_spend_entity_id_dim_entity_entity_id_fk": {
+          "name": "fact_supplier_spend_entity_id_dim_entity_entity_id_fk",
+          "tableFrom": "fact_supplier_spend",
+          "columnsFrom": ["entity_id"],
+          "tableTo": "dim_entity",
+          "columnsTo": ["entity_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fact_supplier_spend_period_supplier_id_entity_id_pk": {
+          "name": "fact_supplier_spend_period_supplier_id_entity_id_pk",
+          "columns": ["period", "supplier_id", "entity_id"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fx_rate": {
+      "name": "fx_rate",
+      "schema": "",
+      "columns": {
+        "version_id": {
+          "name": "version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "currency": {
+          "name": "currency",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "rate_inr": {
+          "name": "rate_inr",
+          "type": "double precision",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fx_rate_version_id_dim_version_version_id_fk": {
+          "name": "fx_rate_version_id_dim_version_version_id_fk",
+          "tableFrom": "fx_rate",
+          "columnsFrom": ["version_id"],
+          "tableTo": "dim_version",
+          "columnsTo": ["version_id"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        },
+        "fx_rate_period_dim_period_period_fk": {
+          "name": "fx_rate_period_dim_period_period_fk",
+          "tableFrom": "fx_rate",
+          "columnsFrom": ["period"],
+          "tableTo": "dim_period",
+          "columnsTo": ["period"],
+          "onUpdate": "no action",
+          "onDelete": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fx_rate_version_id_period_currency_pk": {
+          "name": "fx_rate_version_id_period_currency_pk",
+          "columns": ["version_id", "period", "currency"]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.recommendation": {
+      "name": "recommendation",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "period": {
+          "name": "period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "scope": {
+          "name": "scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "action_id": {
+          "name": "action_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "owner_role": {
+          "name": "owner_role",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "revision": {
+          "name": "revision",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amount_inr": {
+          "name": "amount_inr",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "proposed_by": {
+          "name": "proposed_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requested_by": {
+          "name": "requested_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "assessment": {
+          "name": "assessment",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "evidence": {
+          "name": "evidence",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source": {
+          "name": "source",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "recommendation_period_scope_action": {
+          "name": "recommendation_period_scope_action",
+          "columns": ["period", "scope", "action_id"],
+          "nullsNotDistinct": false
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "views": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

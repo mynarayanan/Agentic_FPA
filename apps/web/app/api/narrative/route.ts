@@ -1,6 +1,7 @@
 import { variancePayload } from '@fpa/db';
 import type { VarianceReport } from '@fpa/engine';
 import { anthropicClient, buildFactSheet, generateNarrative } from '@fpa/narrative';
+import { hasValidToken } from '../../../lib/auth';
 import { getDb } from '../../../lib/db';
 
 export const dynamic = 'force-dynamic';
@@ -20,9 +21,11 @@ export async function GET(req: Request) {
     const report = body as VarianceReport;
     // Without a key the endpoint still works: it returns the deterministic template narrative.
     const key = process.env.ANTHROPIC_API_KEY;
-    const llm = key
-      ? anthropicClient({ apiKey: key, model: process.env.ANTHROPIC_MODEL || undefined })
-      : null;
+    // The model is used only for callers holding the write token, so an open URL cannot spend model tokens.
+    const llm =
+      key && hasValidToken(req)
+        ? anthropicClient({ apiKey: key, model: process.env.ANTHROPIC_MODEL || undefined })
+        : null;
     const narrative = await generateNarrative(llm, report);
     return Response.json({
       period: report.period,

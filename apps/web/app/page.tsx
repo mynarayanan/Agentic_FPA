@@ -1,11 +1,19 @@
-import NarrativePanel from './narrative-panel';
+import { CockpitView } from '../components/CockpitView';
+import { ErrorNotice, SetupNotice } from '../components/ui';
+import { getDb } from '../lib/db';
+import { loadCockpit } from '../lib/loaders';
 
-export default function Home() {
-  return (
-    <main>
-      <h1>Finance AI Studio</h1>
-      <p>Synthetic-data demo. Not connected to any live financial system.</p>
-      <NarrativePanel />
-    </main>
-  );
+export const dynamic = 'force-dynamic';
+
+export default async function Page() {
+  const db = getDb();
+  if (!db) return <SetupNotice />;
+  try {
+    return <CockpitView data={await loadCockpit(db)} />;
+  } catch (e) {
+    console.error('cockpit failed', e);
+    return (
+      <ErrorNotice message="The cockpit could not be loaded. Check that the database has been migrated and loaded." />
+    );
+  }
 }

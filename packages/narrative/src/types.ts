@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import type { Topic } from './topic';
 
 export type Basis = 'CONFIRMED' | 'CALCULATED';
 
@@ -68,6 +69,9 @@ export interface RenderedStatement {
 
 export type NarrativeStatus = 'OK' | 'RETRIED' | 'FALLBACK' | 'TEMPLATE';
 export interface NarrativeResult {
+  /** The (sanitised) question this narrative answers, if any, and the topic it was routed to. */
+  question: string | null;
+  topic: Topic;
   status: NarrativeStatus;
   /** Why the deterministic template was used instead of the model, if it was. */
   fallback_reason: 'NO_LLM' | 'LLM_ERROR' | 'GUARD_FAILED' | null;

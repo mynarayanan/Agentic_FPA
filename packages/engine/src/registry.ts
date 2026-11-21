@@ -1,3 +1,6 @@
+import { assessActions } from './actions';
+import { compareForecasts } from './forecast';
+import { runScenario } from './scenario';
 import { allocate } from './allocate';
 import { revenueBridge } from './bridge';
 import { accountVariances, pnl } from './pnl';
@@ -69,5 +72,36 @@ export const calcRegistry: readonly CalcSpec[] = [
     version: '1.0.0',
     methodologyRef: 'docs/methodology.md#allocation',
     fn: allocate,
+  },
+  {
+    id: 'ACT-IMP-001',
+    name: 'Corrective action impact assessment',
+    formula: 'profit_gross - overlap_haircut -> x confidence -> x phasing -> - implementation_cost',
+    inputs: [
+      'actions (kind, potential, timeline, cost, overlap, confidence)',
+      'operating profit variance',
+      'assessment parameters',
+    ],
+    version: '1.0.0',
+    methodologyRef: 'docs/methodology.md#action-impact-assessment',
+    fn: assessActions,
+  },
+  {
+    id: 'FCS-CMP-001',
+    name: 'Forecast version comparison and driver attribution',
+    formula: 'latest - previous = sum of drivers, reconciled month by month',
+    inputs: ['monthly revenue by version', 'forecast bridge rows', 'last closed month'],
+    version: '1.0.0',
+    methodologyRef: 'docs/methodology.md#forecast-change-attribution',
+    fn: compareForecasts,
+  },
+  {
+    id: 'SCN-WHI-001',
+    name: 'What-if scenario on the latest forecast',
+    formula: 'volume, price, material-cost and opex shocks applied to the remaining months',
+    inputs: ['actuals to date', 'remaining forecast by cost line', 'shocks in basis points'],
+    version: '1.0.0',
+    methodologyRef: 'docs/methodology.md#what-if-scenario',
+    fn: runScenario,
   },
 ];

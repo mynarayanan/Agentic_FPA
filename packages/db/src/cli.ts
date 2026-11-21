@@ -2,6 +2,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadTables } from './loader';
 import { createPgDb, migrateNode, readExpected, readFixtures } from './node';
+import { resetAuditLog, verifyAudit } from './recommendations';
 import { verifyLoad } from './verify';
 
 const dataDir = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..', 'data');
@@ -36,8 +37,26 @@ async function main(): Promise<void> {
     await verify();
   } else if (cmd === 'verify') {
     await verify();
+    const audit = await verifyAudit(db);
+    console.log(
+      `audit log: ${audit.recommendations} recommendations, ${audit.events} events, ${audit.ok ? 'chains intact' : 'PROBLEMS FOUND'}`,
+    );
+    for (const p of audit.problems) console.error(`AUDIT ${p.recommendation_id}: ${p.problem}`);
+    if (!audit.ok) process.exitCode = 1;
+  } else if (cmd === 'reset-audit') {
+    if (!flags.includes('--i-understand-this-destroys-the-audit-log')) {
+      console.error(
+        'DEV ONLY. This permanently deletes all recommendations and approval history. Re-run with --i-understand-this-destroys-the-audit-log',
+      );
+      process.exitCode = 1;
+      return;
+    }
+    await resetAuditLog(db);
+    console.log('Audit log cleared.');
   } else {
-    console.error('Usage: cli.ts migrate | load --yes | verify');
+    console.error(
+      'Usage: cli.ts migrate | load --yes | verify | reset-audit --i-understand-this-destroys-the-audit-log',
+    );
     process.exitCode = 1;
   }
 }

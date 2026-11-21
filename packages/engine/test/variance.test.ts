@@ -12,7 +12,7 @@ describe('VAR-REV-001 revenue variance', () => {
   it('is antisymmetric', () => {
     fc.assert(
       fc.property(fc.integer({ min: 0, max: 1e12 }), fc.integer({ min: 0, max: 1e12 }), (a, b) => {
-        expect(revenueVariance(a, b)).toBe(-revenueVariance(b, a));
+        expect(revenueVariance(a, b)).toBe(0 - revenueVariance(b, a));
       }),
     );
   });

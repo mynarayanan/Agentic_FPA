@@ -29,6 +29,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@fpa/audit':
+        specifier: workspace:*
+        version: link:../../packages/audit
       '@fpa/db':
         specifier: workspace:*
         version: link:../../packages/db
@@ -48,6 +51,9 @@ importers:
         specifier: ^19.0.0
         version: 19.3.1(react@19.3.1)
     devDependencies:
+      '@fpa/semantic':
+        specifier: workspace:*
+        version: link:../../packages/semantic
       '@playwright/test':
         specifier: ^1.49.1
         version: 1.65.1
@@ -60,6 +66,12 @@ importers:
       '@types/react-dom':
         specifier: ^19.0.2
         version: 19.3.0(@types/react@19.3.0)
+      fast-check:
+        specifier: ^3.23.1
+        version: 3.23.2
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.5)
 
   data/generator:
     dependencies:
@@ -88,6 +100,9 @@ importers:
 
   packages/audit:
     devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.20.5
       '@vitest/coverage-v8':
         specifier: ^2.1.8
         version: 2.1.9(vitest@2.1.9(@types/node@22.20.5))
@@ -100,6 +115,9 @@ importers:
 
   packages/db:
     dependencies:
+      '@fpa/audit':
+        specifier: workspace:*
+        version: link:../audit
       '@fpa/engine':
         specifier: workspace:*
         version: link:../engine
@@ -111,14 +129,20 @@ importers:
         version: 0.10.4
       drizzle-orm:
         specifier: ^0.38.3
-        version: 0.38.4(@electric-sql/pglite@0.2.17)(@neondatabase/serverless@0.10.4)(@types/pg@8.23.1)(@types/react@19.3.0)(pg@8.23.1)(react@19.3.1)
+        version: 0.38.4(@electric-sql/pglite@0.3.2)(@neondatabase/serverless@0.10.4)(@types/pg@8.23.1)(@types/react@19.3.0)(pg@8.23.1)(react@19.3.1)
       pg:
         specifier: ^8.13.1
         version: 8.23.1
+      zod:
+        specifier: ^3.24.1
+        version: 3.25.76
     devDependencies:
       '@electric-sql/pglite':
-        specifier: ^0.2.15
-        version: 0.2.17
+        specifier: 0.3.2
+        version: 0.3.2
+      '@electric-sql/pglite-socket':
+        specifier: ^0.0.6
+        version: 0.0.6(@electric-sql/pglite@0.3.2)
       '@types/node':
         specifier: ^22.10.2
         version: 22.20.5
@@ -226,8 +250,14 @@ packages:
   '@drizzle-team/brocli@0.10.2':
     resolution: {integrity: sha512-z33Il7l5dKjUgGULTqBsQBQwckHh5AbIuxhdsIxDDiZAzBOrZO6q9ogcWC65kU382AfynTfgNumVcNIjuIua6w==}
 
-  '@electric-sql/pglite@0.2.17':
-    resolution: {integrity: sha512-qEpKRT2oUaWDH6tjRxLHjdzMqRUGYDnGZlKrnL4dJ77JVMcP2Hpo3NYnOSPKdZdeec57B6QPprCUFg0picx5Pw==}
+  '@electric-sql/pglite-socket@0.0.6':
+    resolution: {integrity: sha512-6RjmgzphIHIBA4NrMGJsjNWK4pu+bCWJlEWlwcxFTVY3WT86dFpKwbZaGWZV6C5Rd7sCk1Z0CI76QEfukLAUXw==}
+    hasBin: true
+    peerDependencies:
+      '@electric-sql/pglite': 0.3.2
+
+  '@electric-sql/pglite@0.3.2':
+    resolution: {integrity: sha512-zfWWa+V2ViDCY/cmUfRqeWY1yLto+EpxjXnZzenB1TyxsTiXaTWeZFIZw6mac52BsuQm0RjCnisjBtdBaXOI6w==}
 
   '@emnapi/runtime@1.11.3':
     resolution: {integrity: sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==}
@@ -2339,7 +2369,11 @@ snapshots:
 
   '@drizzle-team/brocli@0.10.2': {}
 
-  '@electric-sql/pglite@0.2.17': {}
+  '@electric-sql/pglite-socket@0.0.6(@electric-sql/pglite@0.3.2)':
+    dependencies:
+      '@electric-sql/pglite': 0.3.2
+
+  '@electric-sql/pglite@0.3.2': {}
 
   '@emnapi/runtime@1.11.3':
     dependencies:
@@ -3236,9 +3270,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  drizzle-orm@0.38.4(@electric-sql/pglite@0.2.17)(@neondatabase/serverless@0.10.4)(@types/pg@8.23.1)(@types/react@19.3.0)(pg@8.23.1)(react@19.3.1):
+  drizzle-orm@0.38.4(@electric-sql/pglite@0.3.2)(@neondatabase/serverless@0.10.4)(@types/pg@8.23.1)(@types/react@19.3.0)(pg@8.23.1)(react@19.3.1):
     optionalDependencies:
-      '@electric-sql/pglite': 0.2.17
+      '@electric-sql/pglite': 0.3.2
       '@neondatabase/serverless': 0.10.4
       '@types/pg': 8.23.1
       '@types/react': 19.3.0

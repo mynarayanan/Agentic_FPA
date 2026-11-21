@@ -4,3 +4,6 @@ export * from './queries';
 export * from './api';
 export * from './verify';
 export * from './loader';
+export * from './evidence';
+export * from './recommendations';
+export * from './forecast';

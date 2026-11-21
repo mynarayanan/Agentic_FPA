@@ -1,4 +1,7 @@
 import type { ReactNode } from 'react';
+import { NavLinks } from '../components/NavLinks';
+import { TokenField } from '../components/TokenField';
+import './globals.css';
 
 export const metadata = {
   title: 'Finance AI Studio',
@@ -8,10 +11,16 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
-      <body
-        style={{ fontFamily: 'system-ui, sans-serif', margin: 0, padding: '2rem', maxWidth: 720 }}
-      >
-        {children}
+      <body>
+        <div className="banner">
+          Proof of concept on synthetic data. Not connected to any financial system.
+        </div>
+        <header className="topbar">
+          <span className="brand">Finance AI Studio</span>
+          <NavLinks />
+          <TokenField />
+        </header>
+        <main>{children}</main>
       </body>
     </html>
   );

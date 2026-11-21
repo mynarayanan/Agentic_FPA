@@ -31,7 +31,7 @@ Computed per sales line (customer x SKU), for lines that were delivered in the p
 
 OPEN QUESTIONS for the Finance owner: is business unit the right grain for the volume/mix split (vs product family)? Should discounts below a threshold count as price?
 
-## Forecast change attribution (planned, Sprint 4)
+## Forecast change attribution
 
 Drivers: DEMAND (price, volume, mix, outlook), FX (rate), ORDER_DELAY (timing, slippage). Each forecast change is attributed to a driver at entity x business unit x period grain; drivers must sum to the version difference exactly.
 
@@ -46,6 +46,36 @@ ALC-INT-001: integer totals are split with the largest-remainder method on weigh
 ## Operating profit
 
 Revenue - other operating costs (accounts 5000-5300) - operating expenses (accounts 6100-6800).
+
+## Action impact assessment
+
+ACT-IMP-001. A proposed action's headline "potential" is not its value. Steps, in order, all in integer rupees (round half up):
+
+1. **Express as profit.** Timing recoveries (recovered revenue) are converted at the standard margin of the product concerned (default 36% = Industrial Equipment 300). Savings and margin actions are already profit. Recovered revenue is flagged _not incremental_: it is pulled from the next year, not new demand.
+2. **Overlap.** An action that declares `overlaps_with` another action in the portfolio gives up a share of its profit (default 50%) so the same benefit is not counted twice.
+3. **Confidence.** Multiply by the confidence weight (default HIGH 90%, MEDIUM 70%, LOW 40%).
+4. **Phasing.** Benefits start `ceil(timeline_days / 30)` months after the decision period. The in-year share is the months from that start to the financial year end, divided by the months remaining after the decision (capped at 100%).
+5. **Implementation cost** is deducted in the year.
+   `potential_inr` is defined as the benefit over the remaining forecast horizon at full realisation. Recurring actions are flagged as continuing next year but no next-year amount is estimated. Portfolio coverage = net in-year profit / operating-profit shortfall.
+   **All parameters above are assumptions, not Finance policy. They need sign-off.**
+
+## Approval workflow
+
+Three levels: (1) AI proposes; (2) a finance business partner or finance manager validates; (3) a controller or CFO authorises. Only AUTHORISED items may flow to the official EPM process, and nothing is written to EPM by this system.
+
+- **Segregation of duties.** The AI agent, the person who requested the recommendation, anyone who modified the current revision, and the validator can never validate or authorise it.
+- **Delegation of authority.** Items above the controller limit (default 2 Cr) need the CFO to authorise.
+- **Override.** Reject and modify require a justification of at least 10 characters. Modifying changes the amount, starts a new revision and returns the item to level 1.
+- **Audit.** Every event is appended to a hash-chained log; events cannot be updated or deleted.
+
+## What-if scenario
+
+SCN-WHI-001 applies shocks (basis points) to the **months still to come** in the latest forecast; actuals to date never change.
+
+- **Volume** scales revenue, direct materials and freight proportionally. Direct labour, manufacturing overheads and operating expenses are fixed.
+- **Price** changes revenue only, applied after volume. **Material cost** inflation applies to the volume-adjusted materials cost. **Opex** shock scales operating expenses.
+- **Operating profit is used as the EBITDA proxy.** The data has no depreciation or amortisation. **Cash flow is not modelled.**
+- Shocks are limited to +/-50%. The variable-versus-fixed split above is an assumption awaiting Finance sign-off.
 
 ## Sign-off
 
